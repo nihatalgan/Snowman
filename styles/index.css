@@ -12,7 +12,6 @@ body {
     align-items: center;
     height: calc(100vh - 72px);
     width: 100%;
-    display: none;
 }
 
 .game-tittle-wrapper {
