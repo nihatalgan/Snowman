@@ -36,6 +36,7 @@ class Game {
       return;
     }
     console.log("gameLoop exec");
+
     this.update(); // update the game
     // this.gameLoop()
     window.requestAnimationFrame(() => this.gameLoop()); // used to improve/better manage the rate of frames for the game animation
@@ -60,9 +61,10 @@ class Game {
         document.getElementById("lives").textContent = this.lives;
         // Update the counter variable to account for the removed obstacle
         i--;
-      } else if (obstacle.top > this.height) {
+      } else if (obstacle.left <= 0) {
         // Increase the score by 1
         this.score++;
+
         document.getElementById("score").textContent = this.score;
         // Remove the obstacle from the DOM
         obstacle.element.remove();
@@ -78,7 +80,7 @@ class Game {
     }
     // Create a new obstacle based on a random probability
     // when there is no other obstacles on the screen
-    if (Math.random() > 0.98 && this.obstacles.length < 1) {
+    if (Math.random() > 0.98 && this.obstacles.length < 4) {
       this.obstacles.push(new Obstacle(this.gameScreen));
     }
   }

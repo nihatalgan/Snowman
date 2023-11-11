@@ -104,7 +104,14 @@ body {
   position: relative;
   background-size: cover;
   background-position: 0 0;
-  animation: slide 6s linear infinite;
+  /* animation: slide 6s linear infinite; */
+}
+
+#stats {
+  font-size: 24px;
+  font-weight: bolder;
+  position: absolute;
+  right: 50px;
 }
 
 /* ############################# game-end-styles ############################# */

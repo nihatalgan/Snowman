@@ -1,13 +1,14 @@
 class Obstacle {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
-    this.left = Math.floor(Math.random() * 300 + 70);
-    this.top = 0;
+    this.top = Math.floor(Math.random() * 500);
+    this.left = 1500;
     this.width = 100;
     this.height = 150;
     this.element = document.createElement("img");
+    this.rndnum = Math.floor(Math.random() * 7) + 1;
 
-    this.element.src = "./images/hat.png";
+    this.element.src = `./images/img${this.rndnum}.png`;
     this.element.style.position = "absolute";
     this.element.style.width = `${this.width}px`;
     this.element.style.height = `${this.height}px`;
@@ -22,7 +23,7 @@ class Obstacle {
   }
 
   move() {
-    this.top += 3;
+    this.left -= 5;
     this.updatePosition();
   }
 }
