@@ -2,18 +2,18 @@ class Game {
   // code to be added
   constructor() {
     this.startScreen = document.getElementById("game-intro");
-    this.gameScreen = document.getElementById("game-screen");
+    this.gameScreen = document.getElementById("game-main");
     this.gameEndScreen = document.getElementById("game-end");
     this.player = new Player(
       this.gameScreen,
       10,
-      550,
-      100,
-      100,
-      "./images/car.png"
+      250,
+      150,
+      150,
+      "./images/snowman.png"
     ); //  new Player()
-    this.width = 600;
-    this.height = 600;
+    this.width = "100vw";
+    this.height = "100vh";
     this.obstacles = []; // new Obstacle()
     this.score = 0;
     this.lives = 3;
