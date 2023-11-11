@@ -1,4 +1,10 @@
-/* game-intro-styles */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* ############################# game-intro-styles ############################# */
+
 #game-intro {
     display: flex;
     flex-direction: column;
@@ -6,6 +12,7 @@
     align-items: center;
     height: calc(100vh - 72px);
     width: 100%;
+    display: none;
 }
 
 .game-tittle-wrapper {
@@ -59,13 +66,54 @@
     flex-direction: row;
     gap :0 12px
 }
-/* game-main-styles */
+
+
+
+/* ############################# game-main-styles ############################# */
+
 #game-main {
-    display:none;
+    height: 100vh;
+    width: 100%;
+    display: none;
+}
+
+@keyframes slide {
+    0% {
+        background-position: 100vw 0;
+    }
+
+    25% {
+        background-position: 75vw 0;
+    }
+
+    50% {
+        background-position: 50vw 0;
+    }
+
+    75% {
+        background-position: 25vw 0;
+    }
+
+    100% {
+        background-position: 0vw 0;
+    }
+}
+
+.game-background {
+    height: 100%;
+    width: 100%;
+    background-image: url("../images/winter-background.png");
+    position: relative;
+    background-size: cover;
+    background-position: 0 0;
+    animation: slide 6s linear infinite;
 }
 
 
-/* game-end-styles */
+/* ############################# game-end-styles ############################# */
 #game-end {
+
+    height: calc(100vh - 72px);
+    width: 100%;
     display: none;
 }
