@@ -115,3 +115,7 @@ body {
   background-image: url("../images/winter-background.png");
     display: none;
 }
+
+.game-over {
+    color: red;
+}
