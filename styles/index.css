@@ -10,8 +10,20 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 72px);
+  height: 100vh;
   width: 100%;
+  background-image: url("../images/winter-background.png");
+}
+
+.game-intro-info-container, .game-end-info-container {
+    padding: 24px;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .game-tittle-wrapper {
@@ -28,7 +40,7 @@ body {
 
 .game-tittle {
   font-size: 48px;
-  color: aqua;
+  color: #202020;
   margin: 0;
 }
 
@@ -74,28 +86,6 @@ body {
   width: 100vw;
   display: none;
 }
-/* 
-@keyframes slide {
-  0% {
-    background-position: 100vw 0;
-  }
-
-  25% {
-    background-position: 75vw 0;
-  }
-
-  50% {
-    background-position: 50vw 0;
-  }
-
-  75% {
-    background-position: 25vw 0;
-  }
-
-  100% {
-    background-position: 0vw 0;
-  }
-} */
 
 .game-background {
   height: 100vh;
@@ -104,7 +94,7 @@ body {
   position: relative;
   background-size: cover;
   background-position: 0 0;
-  /* animation: slide 6s linear infinite; */
+  
 }
 
 #stats {
@@ -116,7 +106,12 @@ body {
 
 /* ############################# game-end-styles ############################# */
 #game-end {
-  height: calc(100vh - 72px);
+  height: 100vh;
   width: 100%;
-  display: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../images/winter-background.png");
+    display: none;
 }

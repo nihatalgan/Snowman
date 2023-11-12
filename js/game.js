@@ -95,6 +95,6 @@ class Game {
     // Hide game screen
     this.gameScreen.style.display = "none";
     // Show end game screen
-    this.gameEndScreen.style.display = "block";
+    this.gameEndScreen.style.display = "flex";
   }
 }
