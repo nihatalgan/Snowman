@@ -7,7 +7,7 @@ class Game {
     this.player = new Player(
       this.gameScreen,
       10,
-      250,
+      50,
       150,
       150,
       "./images/snowman.png"

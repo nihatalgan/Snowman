@@ -1,10 +1,10 @@
 class Obstacle {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
-    this.top = Math.floor(Math.random() * 500);
-    this.left = 1500;
-    this.width = 100;
-    this.height = 150;
+    this.top = Math.floor(Math.random() * (gameScreen.offsetHeight - 120));
+    this.left = gameScreen.offsetWidth;
+    this.width = 120;
+    // this.height = 150;
     this.element = document.createElement("img");
     this.rndnum = Math.floor(Math.random() * 7) + 1;
 
