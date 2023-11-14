@@ -8,8 +8,9 @@ window.onload = function () {
     game = new Game(); // create an instance of the Game class
     game.start(); // execute the start method
     let music = new Audio("./sounds/winter.wav");
-    music.volume = 0.5;
+    music.volume = 0.2;
     music.play();
+    music.loop = true;
   }
 
   function restartGame() {
