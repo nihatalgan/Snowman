@@ -57,6 +57,8 @@ class Player {
       playerRect.top < obstacleRect.bottom &&
       playerRect.bottom > obstacleRect.top
     ) {
+      let sound = new Audio("./sounds/click.mp3");
+      sound.play();
       return true;
     } else {
       return false;

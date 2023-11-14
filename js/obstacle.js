@@ -22,8 +22,8 @@ class Obstacle {
     console.log("obstacle position", this.element.getBoundingClientRect());
   }
 
-  move() {
-    this.left -= 5;
+  move(speed) {
+    this.left -= speed;
     this.updatePosition();
   }
 }

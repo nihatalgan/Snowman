@@ -7,6 +7,9 @@ window.onload = function () {
     console.log("start game");
     game = new Game(); // create an instance of the Game class
     game.start(); // execute the start method
+    let music = new Audio("./sounds/winter.wav");
+    music.volume = 0.5;
+    music.play();
   }
 
   function restartGame() {
@@ -30,6 +33,7 @@ window.onload = function () {
       switch (key) {
         case "ArrowLeft":
           game.player.directionX = -3;
+
           break;
         case "ArrowUp":
           game.player.directionY = -3;

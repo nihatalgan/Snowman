@@ -48,7 +48,13 @@ class Game {
     // Return the new positions of the obstacles to update the game
     for (let i = 0; i < this.obstacles.length; i++) {
       const obstacle = this.obstacles[i];
-      obstacle.move();
+      if (this.score >= 5) {
+        obstacle.move(3);
+      }
+      if (this.score >= 10) {
+        obstacle.move(6);
+      }
+      obstacle.move(3);
 
       // If the player's car collides with an obstacle
       if (this.player.didCollide(obstacle)) {
