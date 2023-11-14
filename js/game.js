@@ -102,5 +102,7 @@ class Game {
     this.gameScreen.style.display = "none";
     // Show end game screen
     this.gameEndScreen.style.display = "flex";
+    document.getElementById("score-value").innerText="Your Score is:"+this.score
   }
+  
 }
