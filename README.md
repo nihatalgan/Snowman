@@ -6,7 +6,7 @@ Move player with arrow keys.
 
 Functionality:
 
-[x] Begining page
+[x] Begining page<br>
 [x] Main game page
 [x] Game over page
 [x] Set player on left
