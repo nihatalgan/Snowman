@@ -1,5 +1,4 @@
 class Game {
-  // code to be added
   constructor() {
     this.startScreen = document.getElementById("game-intro");
     this.gameScreen = document.getElementById("game-main");
@@ -7,17 +6,22 @@ class Game {
     this.player = new Player(
       this.gameScreen,
       10,
-      50,
+      200,
       150,
       150,
       "./images/snowman.png"
-    ); //  new Player()
+    );
     this.width = "100vw";
     this.height = "100vh";
-    this.obstacles = []; // new Obstacle()
+    this.obstacles = [];
     this.score = 0;
     this.lives = 3;
     this.gameIsOver = false;
+    this.music = new Audio("./sounds/winter.wav");
+    this.music.volume = 0.2;
+    this.music.play();
+    this.music.loop = true;
+    this.music.playbackRate = 0.8;
   }
 
   start() {
@@ -26,83 +30,63 @@ class Game {
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "block";
     this.gameLoop();
-    // Car start at a specific position
-    // Obstacles are going to be at a specific position as well
   }
 
   gameLoop() {
-    // Right now, always this.gameIsOver === false
     if (this.gameIsOver === true) {
       return;
     }
-    console.log("gameLoop exec");
-
-    this.update(); // update the game
-    // this.gameLoop()
+    this.update();
     window.requestAnimationFrame(() => this.gameLoop()); // used to improve/better manage the rate of frames for the game animation
   }
 
   update() {
-    // Return the new position of the car to update the game
     this.player.move();
-    // Return the new positions of the obstacles to update the game
     for (let i = 0; i < this.obstacles.length; i++) {
       const obstacle = this.obstacles[i];
       if (this.score >= 5) {
         obstacle.move(3);
+        this.music.playbackRate = 1.2;
       }
       if (this.score >= 10) {
         obstacle.move(6);
+        this.music.playbackRate = 1.6;
       }
       obstacle.move(3);
-
-      // If the player's car collides with an obstacle
       if (this.player.didCollide(obstacle)) {
-        // Remove the obstacle element from the DOM
         obstacle.element.remove();
-        // Remove obstacle object from the array
         this.obstacles.splice(i, 1);
-        // Reduce player's lives by 1
         this.lives--;
         document.getElementById("lives").textContent = this.lives;
-        // Update the counter variable to account for the removed obstacle
         i--;
       } else if (obstacle.left <= 0) {
-        // Increase the score by 1
         this.score++;
 
         document.getElementById("score").textContent = this.score;
-        // Remove the obstacle from the DOM
         obstacle.element.remove();
-        // Remove obstacle object from the array
         this.obstacles.splice(i, 1);
-        // Update the counter variable to account for the removed obstacle
         i--;
       }
     }
-    // End the game
     if (this.lives === 0) {
       this.endGame();
     }
-    // Create a new obstacle based on a random probability
-    // when there is no other obstacles on the screen
     if (Math.random() > 0.98 && this.obstacles.length < 4) {
       this.obstacles.push(new Obstacle(this.gameScreen));
     }
   }
 
-  // Create a new method responsible for ending the game
   endGame() {
-    this.player.element.remove(); // remove the player car from the screen
-    this.obstacles.forEach((obstacle) => obstacle.element.remove()); // remove the obstacles from the screen
+    this.player.element.remove();
+    this.obstacles.forEach((obstacle) => obstacle.element.remove());
 
-    this.gameIsOver = true; // cancel the execution of gameLoop()
-
-    // Hide game screen
+    this.gameIsOver = true;
     this.gameScreen.style.display = "none";
-    // Show end game screen
     this.gameEndScreen.style.display = "flex";
-    document.getElementById("score-value").innerText="Your Score is:"+this.score
+    document.getElementById("score-value").innerText =
+      "Your Score is: " + this.score;
+    this.music.pause();
+    this.over = new Audio("./sounds/game-over.wav");
+    this.over.play();
   }
-  
 }
