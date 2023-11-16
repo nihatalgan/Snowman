@@ -3,7 +3,7 @@ class Obstacle {
     this.gameScreen = gameScreen;
     this.top = Math.floor(Math.random() * (gameScreen.offsetHeight - 120));
     this.left = gameScreen.offsetWidth;
-    this.width = 120;
+    this.width = 90;
     // this.height = 150;
     this.element = document.createElement("img");
     this.rndnum = Math.floor(Math.random() * 7) + 1;

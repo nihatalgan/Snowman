@@ -7,7 +7,7 @@ class Game {
       this.gameScreen,
       10,
       200,
-      150,
+      100,
       150,
       "./images/snowman.png"
     );
@@ -44,11 +44,11 @@ class Game {
     this.player.move();
     for (let i = 0; i < this.obstacles.length; i++) {
       const obstacle = this.obstacles[i];
-      if (this.score >= 5) {
+      if (this.score >= 10) {
         obstacle.move(3);
         this.music.playbackRate = 1.2;
       }
-      if (this.score >= 10) {
+      if (this.score >= 20) {
         obstacle.move(6);
         this.music.playbackRate = 1.6;
       }
